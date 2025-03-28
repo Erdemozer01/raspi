@@ -1,5 +1,5 @@
 import time
-from gpiozero import Button, LED
+from gpiozero import LED
 
 
 led = LED(17)
