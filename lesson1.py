@@ -1,7 +1,8 @@
 import time
-import  gpiozero
+from gpiozero import Button, LED
 
-led = gpiozero.LED(17)
+
+led = LED(17)
 
 while True:
     led.on()
