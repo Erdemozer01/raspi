@@ -1,4 +1,3 @@
-from gpio import output
 import time
 import  gpiozero
 
