@@ -1,7 +1,7 @@
 import time
 import gpiozero
 from signal import pause
-
+import RPi.GPIO as GPIO
 from gpiozero import LEDBoard
 
 led = gpiozero.LED(17)
