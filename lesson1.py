@@ -11,4 +11,4 @@ try:
         led.off()
         time.sleep(1)
 except:
-    gpiozero.Factory.close()
+    led.source = 0
