@@ -9,7 +9,7 @@ def led(pin_number=None):
         pause()
     except KeyboardInterrupt:
         led.close()
-        print("Bye")
+
 
 
 led(17)
