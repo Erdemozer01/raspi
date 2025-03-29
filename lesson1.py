@@ -1,10 +1,10 @@
-from time import sleep
 import gpiozero
 from signal import pause
 
-
-led = gpiozero.LED(17)
+led = gpiozero.PWMLED(17)
 
 led.blink()
+
+led.pulse()
 
 pause()
