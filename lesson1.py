@@ -11,4 +11,4 @@ try:
         led.off()
         time.sleep(1)
 except:
-    gpiozero.LED.close(led)
+    led.close()
