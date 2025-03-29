@@ -1,5 +1,6 @@
 import time
 import gpiozero
+from signal import pause
 
 
 try:
@@ -10,4 +11,4 @@ try:
         led.off()
         time.sleep(1)
 except:
-    gpiozero.Buzzer(17)
+    pause()
