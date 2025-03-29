@@ -4,17 +4,18 @@ from signal import pause
 
 lights = TrafficLights(2, 3, 4)
 
-def traffic_light_sequence():
-    while True:
-        yield (0, 0, 1) # green
-        sleep(10)
-        yield (0, 1, 0) # amber
-        sleep(1)
-        yield (1, 0, 0) # red
-        sleep(10)
-        yield (1, 1, 0) # red+amber
-        sleep(1)
+lights.green.on()
 
-lights.source = traffic_light_sequence()
-
-pause()
+while True:
+    sleep(10)
+    lights.green.off()
+    lights.amber.on()
+    sleep(1)
+    lights.amber.off()
+    lights.red.on()
+    sleep(10)
+    lights.amber.on()
+    sleep(1)
+    lights.green.on()
+    lights.amber.off()
+    lights.red.off()
