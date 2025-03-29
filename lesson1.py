@@ -10,6 +10,6 @@ while True:
     time.sleep(1)
     led.off()
     time.sleep(1)
-    gpiozero.Device.close_all()
+
 
 
