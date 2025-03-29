@@ -8,5 +8,5 @@ try:
 
     pause()
 except KeyboardInterrupt:
-    pause()
+    pass
 
