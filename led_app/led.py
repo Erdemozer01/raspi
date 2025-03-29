@@ -2,7 +2,7 @@ import gpiozero
 from signal import pause
 
 
-def led(pin_number=None):
+def led_pulse(pin_number=None):
     led = gpiozero.PWMLED(pin_number)
     try:
         led.pulse()
@@ -11,5 +11,4 @@ def led(pin_number=None):
         led.close()
 
 
-
-led(17)
+led_pulse(17)
