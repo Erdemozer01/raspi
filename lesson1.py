@@ -8,7 +8,6 @@ try:
 
     pause()
 except KeyboardInterrupt:
-    led.off()
     print("Bye")
     exit()
 
