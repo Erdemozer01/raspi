@@ -12,5 +12,5 @@ try:
         time.sleep(1)
         led.off()
         time.sleep(1)
-except KeyboardInterrupt:
-    GPIO.cleanup()
+except:
+    gpiozero.GPIODevice.close()
