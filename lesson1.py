@@ -12,5 +12,5 @@ try:
         time.sleep(1)
         led.off()
         time.sleep(1)
-except:
-    led.off()
+except KeyboardInterrupt:
+    led.blink(background=False)
