@@ -1,8 +1,9 @@
 import gpiozero
 from signal import pause
 
-led = gpiozero.PWMLED(17)
+try:
+    led = gpiozero.PWMLED(17)
 
-led.pulse()
-
-pause()
+    led.pulse()
+except KeyboardInterrupt:
+    pause()
