@@ -9,6 +9,5 @@ try:
         time.sleep(1)
         led.off()
         time.sleep(1)
-
 except:
-    gpiozero.Device.pin_factory()
+    gpiozero.Device.close()
