@@ -1,6 +1,5 @@
 import time
 
-from RPiSim.GPIO import GPIO
 from gpiozero import LED
 import gpiozero
 
