@@ -13,7 +13,4 @@ try:
         led.off()
         time.sleep(1)
 except:
-    tree = LEDBoard(*range(2, 28), pwm=True)
-    for led in tree:
-        led.source = 0
-    tree.off()
+    led.off()
