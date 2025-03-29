@@ -8,3 +8,6 @@ def led_pulse(pin_number=None):
         pause()
     except KeyboardInterrupt:
         led.close()
+        pause()
+
+
