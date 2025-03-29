@@ -8,7 +8,7 @@ def led(pin_number=None):
         led.pulse()
         pause()
     except KeyboardInterrupt:
-        gpiozero.Device.close()
+        led.close()
         print("Bye")
 
 
