@@ -10,4 +10,4 @@ try:
         led.off()
         time.sleep(1)
 except:
-    gpiozero.Device.close()
+    gpiozero.Buzzer(17)
