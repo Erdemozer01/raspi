@@ -2,6 +2,8 @@ import time
 import gpiozero
 from signal import pause
 
+from gpiozero import LEDBoard
+
 led = gpiozero.LED(17)
 
 try:
@@ -11,4 +13,7 @@ try:
         led.off()
         time.sleep(1)
 except:
-    led.source = 0
+    tree = LEDBoard(*range(2, 28), pwm=True)
+    for led in tree:
+        led.source = 0
+    tree.off()
