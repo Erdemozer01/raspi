@@ -2,6 +2,8 @@ import time
 import gpiozero
 from signal import pause
 
+from RPiSim.GPIO import GPIO
+
 led = gpiozero.LED(17)
 
 try:
@@ -11,5 +13,4 @@ try:
         led.off()
         time.sleep(1)
 except:
-    led.off()
-    led.close()
+    gpiozero.LED.close(led)
