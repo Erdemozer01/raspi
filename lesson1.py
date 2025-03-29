@@ -2,8 +2,6 @@ import time
 import gpiozero
 from signal import pause
 
-from RPiSim.GPIO import GPIO
-
 led = gpiozero.LED(17)
 
 try:
