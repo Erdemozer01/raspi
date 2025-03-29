@@ -1,13 +1,12 @@
-import time
+from time import sleep
 import gpiozero
 
 led = gpiozero.LED(17)
 
-try:
-    while True:
-        led.on()
-        time.sleep(1)
-        led.off()
-        time.sleep(1)
-except:
-    gpiozero.GPIODevice.close()
+while True:
+    led.value = 0  # off
+    sleep(1)
+    led.value = 0.5  # half brightness
+    sleep(1)
+    led.value = 1  # full brightness
+    sleep(1)
