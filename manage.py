@@ -3,6 +3,8 @@ from led_apps import led
 title = "*"*50 + "\n" + "Uygulamalar" + "\n" + "1 - Pulse Kontrol" + "\n" + "2 - Traffic Lights"+ "\n" + "*"*50 + "\n\n"
 
 
+print(title)
+
 while True:
 
     choice_app = int(input("Islem : "))
