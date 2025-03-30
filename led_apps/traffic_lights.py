@@ -1,6 +1,5 @@
 from gpiozero import TrafficLights
 from time import sleep
-from signal import pause
 
 lights = TrafficLights(2, 3, 4)
 
