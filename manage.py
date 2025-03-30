@@ -1,17 +1,11 @@
 from led_apps import led
 
-title = "*"*50 + "\n" + "İşlem Seçiniz" + "\n" + "1 - Pulse Kontrol" + "\n" + "2 - Traffic Lights"+ "\n" + "*"*50
+title = "*"*50 + "\n" + "İşlem Seçiniz" + "\n" + "1 - Pulse Kontrol" + "\n" + "2 - Traffic Lights"+ "\n" + "*"*50 + "\n\n"
 
 
 while True:
 
     choice_app = int(input(title))
-
-    if choice_app is not int:
-
-        print("Hatalı Şeçim")
-
-        continue
 
     if choice_app == 1:
 
