@@ -5,11 +5,11 @@ title = "*"*50 + "\n" + "Uygulamalar" + "\n" + "1 - Pulse Kontrol" + "\n" + "2 -
 
 while True:
 
-    choice_app = int(input("İşlem : "))
+    choice_app = int(input("Islem : "))
 
     if choice_app == 1:
 
-        pin_number = int(input("Pin Number: "))
+        pin_number = int(input("Pin: "))
 
         try:
             led.led_pulse(pin_number=pin_number)
@@ -18,11 +18,12 @@ while True:
             pass
     elif choice_app == 2:
         try:
-            red = int(input("Kırmızı ısık pin: "))
-            yellow = int(input("Sarı ısık pin: "))
-            green = int(input("Yeşil ısık pin: "))
+            red = int(input("Kirmizi: "))
+            yellow = int(input("Sari: "))
+            green = int(input("Yesil: "))
 
             led.traffic_light(red_pin_number=red, green_pin_number=green, yellow_pin_number=yellow)
+
         except:
             print("Pin numarasını doğru yazdığınızdan emin olun")
             pass
