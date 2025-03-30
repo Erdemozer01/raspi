@@ -17,13 +17,12 @@ while True:
             print("Pin numarasını doğru yazdığınızdan emin olun")
             pass
     elif choice_app == 2:
+
         try:
             red = int(input("Kirmizi: "))
             yellow = int(input("Sari: "))
             green = int(input("Yesil: "))
-
             led.traffic_light(red_pin_number=red, green_pin_number=green, yellow_pin_number=yellow)
-
         except:
-            print("Pin numarasını doğru yazdığınızdan emin olun")
+            print("Pin numarasini kontrol edin")
             pass
