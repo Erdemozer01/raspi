@@ -32,7 +32,7 @@ while True:
 
             led.traffic_light(red_GPIO_number=red, yellow_GPIO_number=yellow, green_GPIO_number=green)
 
-        except ValueError as e:
-            print(e)
+        except:
+
             print("Pin numarasini kontrol edin")
             pass
