@@ -1,6 +1,6 @@
-from led_apps import led
+from led_apps import led, button
 
-title = "*" * 50 + "\n" + "Uygulamalar" + "\n" + "1 - Pulse Kontrol" + "\n" + "2 - Traffic Lights" + "3 - Button" + "\n" + "*" * 50 + "\n\n"
+title = "*" * 50 + "\n" + "Uygulamalar" + "\n" + "1 - Pulse Kontrol" + "\n" + "2 - Traffic Lights" + "\n" + "3 - Button" + "\n" + "*" * 50 + "\n\n"
 
 print(title)
 
@@ -41,11 +41,7 @@ while True:
 
         try:
 
-            red = int(input("Kirmizi: "))
-            yellow = int(input("Sari: "))
-            green = int(input("Yesil: "))
-
-            led.traffic_light(red_GPIO_number=red, yellow_GPIO_number=yellow, green_GPIO_number=green)
+            button.button()
 
         except:
 
