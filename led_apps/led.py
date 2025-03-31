@@ -22,6 +22,7 @@ def traffic_light(red_GPIO_number=None, yellow_GPIO_number=None, green_GPIO_numb
     while True:
         sleep(10)
         lights.green.off()
+        sleep(1)
         lights.amber.on()
         sleep(1)
         lights.amber.off()
