@@ -14,10 +14,15 @@ while True:
         pin_number = int(input("Pin: "))
 
         try:
+
             led.led_pulse(pin_number=pin_number)
+
         except:
-            print("Pin numarasını doğru yazdığınızdan emin olun")
+
+            print("Pin numarasini kontrol edin")
+
             pass
+
     elif choice_app == 2:
 
         try:
