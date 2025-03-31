@@ -1,6 +1,6 @@
 from led_apps import led
 
-title = "*" * 50 + "\n" + "Uygulamalar" + "\n" + "1 - Pulse Kontrol" + "\n" + "2 - Traffic Lights" + "\n" + "*" * 50 + "\n\n"
+title = "*" * 50 + "\n" + "Uygulamalar" + "\n" + "1 - Pulse Kontrol" + "\n" + "2 - Traffic Lights" + "3 - Button" + "\n" + "*" * 50 + "\n\n"
 
 print(title)
 
@@ -23,6 +23,21 @@ while True:
             pass
 
     elif choice_app == 2:
+
+        try:
+
+            red = int(input("Kirmizi: "))
+            yellow = int(input("Sari: "))
+            green = int(input("Yesil: "))
+
+            led.traffic_light(red_GPIO_number=red, yellow_GPIO_number=yellow, green_GPIO_number=green)
+
+        except:
+
+            print("Pin numarasini kontrol edin")
+            pass
+
+    elif choice_app == 3:
 
         try:
 
