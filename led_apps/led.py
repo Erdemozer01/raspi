@@ -14,6 +14,7 @@ def led_pulse(pin_number=None):
 
 
 def traffic_light(red_GPIO_number=None, yellow_GPIO_number=None, green_GPIO_number=None):
+
     lights = gpiozero.TrafficLights(red=red_GPIO_number, amber=yellow_GPIO_number, green=green_GPIO_number)
 
     lights.green.on()
