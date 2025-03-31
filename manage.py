@@ -52,7 +52,7 @@ while True:
 
         try:
 
-            button.button()
+            button.button_led()
 
         except:
 
