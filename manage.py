@@ -1,6 +1,6 @@
 from led_apps import led, button
 
-title = "*" * 50 + "\n" + "Uygulamalar" + "\n" + "1 - Pulse Kontrol" + "\n" + "2 - Traffic Lights" + "\n" + "3 - Button game" + "\n" + "3 - Button kontrol" + "\n" + "*" * 50 + "\n\n"
+title = "*" * 50 + "\n" + "Uygulamalar" + "\n" + "1 - Pulse Kontrol" + "\n" + "2 - Traffic Lights" + "\n" + "3 - Button game" + "\n" + "4 - Button kontrol" + "\n" + "*" * 50 + "\n\n"
 
 print(title)
 
@@ -38,6 +38,17 @@ while True:
             pass
 
     elif choice_app == 3:
+
+        try:
+
+            button.button()
+
+        except:
+
+            print("Pin numarasini kontrol edin")
+            pass
+
+    elif choice_app == 4:
 
         try:
 
