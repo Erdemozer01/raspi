@@ -1,6 +1,6 @@
 from led_apps import led, button
 
-title = "*" * 50 + "\n" + "Uygulamalar" + "\n" + "1 - Pulse Kontrol" + "\n" + "2 - Traffic Lights" + "\n" + "3 - Button" + "\n" + "*" * 50 + "\n\n"
+title = "*" * 50 + "\n" + "Uygulamalar" + "\n" + "1 - Pulse Kontrol" + "\n" + "2 - Traffic Lights" + "\n" + "3 - Button game" + "\n" + "3 - Button kontrol" + "\n" + "*" * 50 + "\n\n"
 
 print(title)
 
