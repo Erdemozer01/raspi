@@ -139,7 +139,7 @@ if __name__ == "__main__":
                 plt.legend()
                 plt.grid(True)
                 plt.ylim(bottom=0)
-                # plt.savefig("otonom_mesafe_profili.png") # İsterseniz dosyaya kaydedebilirsiniz
+                plt.savefig("otonom_mesafe_profili.png") # İsterseniz dosyaya kaydedebilirsiniz
                 plt.show()
 
             except ImportError:
