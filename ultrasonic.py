@@ -11,8 +11,9 @@ GREEN_LED_PIN = 18
 YELLOW_LED_PIN = 27 # Sarı LED için GPIO27 kullanılıyor, gerekirse değiştirin
 
 # Eşik Değerleri
-OBJECT_THRESHOLD_CM = 20.0  # Kırmızı/Yeşil LED için nesne algılama eşiği (10 cm)
+OBJECT_THRESHOLD_CM = 20.0  # Kırmızı/Yeşil LED için nesne algılama eşiği (YENİ: 20 cm)
 YELLOW_LED_THRESHOLD_CM = 100.0 # Sarı LED davranışı için eşik (100 cm)
+TERMINATION_DISTANCE_CM = 10.0 # Program sonlandırma eşiği (YENİ: 10 cm'den az)
 
 try:
     sensor = DistanceSensor(echo=ECHO_PIN, trigger=TRIG_PIN, max_distance=2.0, queue_len=5)
@@ -32,7 +33,7 @@ if __name__ == "__main__":
         # Başlangıç LED durumları
         red_led.off()
         green_led.off()
-        yellow_led.off() # Sarı LED döngü içinde durumuna göre ayarlanacak
+        yellow_led.off()
 
         print("Mesafe ölçümü başlıyor...")
 
@@ -42,7 +43,12 @@ if __name__ == "__main__":
 
             print(f"Mesafe: {distance_cm:.2f} cm")
 
-            # 1. Sarı LED Mantığı (Yeni Kural)
+            # 1. Program Sonlandırma Kontrolü (YENİ)
+            if distance_cm < TERMINATION_DISTANCE_CM:
+                print(f"DİKKAT: Nesne çok yakın ({distance_cm:.2f}cm)! Güvenlik nedeniyle program sonlandırılıyor.")
+                break  # Döngüyü sonlandır ve finally bloğuna git
+
+            # 2. Sarı LED Mantığı
             if distance_cm > YELLOW_LED_THRESHOLD_CM:
                 yellow_led.on()
                 print("Sarı LED: Sürekli Yanıyor (Mesafe > 100cm)")
@@ -50,45 +56,40 @@ if __name__ == "__main__":
                 yellow_led.toggle()
                 print("Sarı LED: Yanıp Sönüyor (Mesafe <= 100cm)")
 
-            # 2. Kırmızı/Yeşil LED Mantığı (Önceki gibi, geçerli okumaya bağlı)
-            # 'is_reading_valid' kontrolü, sensörün 0 veya max_distance gibi
-            # sınır değerler döndürmediğinden emin olmak içindir.
+            # 3. Kırmızı/Yeşil LED Mantığı (Güncellenmiş OBJECT_THRESHOLD_CM ile)
             is_reading_valid = (distance_m > 0.0) and (distance_m < sensor.max_distance)
 
             if is_reading_valid:
-                if distance_cm <= OBJECT_THRESHOLD_CM:  # Nesne 10 cm veya daha yakınsa
-                    print(f"Kırmızı/Yeşil: Nesne Çok Yakın ({distance_cm:.2f}cm)! Kırmızı LED Aktif.")
+                # OBJECT_THRESHOLD_CM şimdi 20.0 cm
+                if distance_cm <= OBJECT_THRESHOLD_CM:
+                    print(f"Kırmızı/Yeşil: Nesne Yakın ({distance_cm:.2f}cm <= {OBJECT_THRESHOLD_CM:.0f}cm)! Kırmızı LED Aktif.")
                     red_led.on()
                     green_led.off()
-                else: # Nesne 10 cm'den uzaktaysa (ama hala geçerli bir okuma)
-                    print(f"Kırmızı/Yeşil: Mesafe Güvenli ({distance_cm:.2f}cm). Yeşil LED Aktif.")
+                else:
+                    print(f"Kırmızı/Yeşil: Mesafe Güvenli ({distance_cm:.2f}cm > {OBJECT_THRESHOLD_CM:.0f}cm). Yeşil LED Aktif.")
                     green_led.on()
                     red_led.off()
             else:
-                # Geçersiz okuma durumunda (0.0m veya sensörün max_distance değeri),
-                # kırmızı ve yeşil LED'ler kapatılır. Sarı LED'in davranışı yukarıda zaten belirlendi.
                 status_message = "Kırmızı/Yeşil LEDler: Kapalı (Sensör "
                 if distance_m == 0.0:
                     status_message += "0.0m okuyor)."
                 elif distance_m == sensor.max_distance:
                     status_message += f"max menzilde ({sensor.max_distance*100:.0f}cm) okuyor)."
-                else: # Bu durum normalde oluşmamalı
+                else:
                     status_message += "geçersiz bir değer okuyor)."
                 print(status_message)
                 red_led.off()
                 green_led.off()
 
-            time.sleep(0.25)  # Yanıp sönme hızı ve okuma aralığı
+            time.sleep(0.25)
 
     except KeyboardInterrupt:
         print("\nProgram kullanıcı tarafından sonlandırıldı.")
-
     except Exception as e:
         print(f"Beklenmedik bir hata oluştu: {e}")
 
     finally:
         print("Pinler temizleniyor...")
-        # Tüm LED'leri kapat ve kaynakları serbest bırak
         if 'red_led' in locals():
             if hasattr(red_led, 'is_active') and red_led.is_active: red_led.off()
             red_led.close()
