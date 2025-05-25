@@ -153,7 +153,7 @@ if __name__ == "__main__":
                 plt.legend()
                 plt.grid(True)
                 plt.ylim(bottom=0)
-                # plt.savefig("otonom_mesafe_profili.png")
+                plt.savefig("otonom_mesafe_profili.png")
                 plt.show()
 
                 # 2. Hız Grafiği
@@ -168,7 +168,7 @@ if __name__ == "__main__":
                     plt.axhline(0, color='grey', lw=0.5, linestyle='--')  # Sıfır hız çizgisi
                     plt.legend()
                     plt.grid(True)
-                    # plt.savefig("otonom_hiz_profili.png")
+                    plt.savefig("otonom_hiz_profili.png")
                     plt.show()
 
             except ImportError:
