@@ -12,7 +12,7 @@ try:
     sensor = DistanceSensor(echo=ECHO_PIN, trigger=TRIG_PIN, max_distance=2.0, queue_len=5)
 except Exception as e:
     print(f"Hata meydana geldi: {e}")
-    print("lÃ¼tfen kotrol edin")
+    print("Lütfen kotrol edin")
     exit()
 
 red_led = LED(RED_LED_PIN)
@@ -20,7 +20,7 @@ green_led = LED(GREEN_LED_PIN)
 
 THRESHOLD_CM = 10.0  # 10 cm
 
-print("Press Ctrl+C ile programÄ± sonlandÄ±r.")
+print("Press Ctrl+C ile programdan çık.")
 
 if __name__ == "__main__":
     try:
@@ -40,13 +40,13 @@ if __name__ == "__main__":
 
             if is_object_detected_close_and_valid:
 
-                print("Nesne tespit edildi dur. KÄ±rmÄ±zÄ± Ä±sÄ±kla uyarÄ± ver....")
+                print("Nesne tespit edildi dur. Kırmızı ısıgı yak....")
 
                 red_led.on()
                 green_led.off()
 
             else:
-                print("Rahat hareket et, YeÅŸil Ä±ÅŸÄ±k yanÄ±yor")
+                print("Rahat hareket et, Yeşil ışığı yak")
 
                 green_led.on()
                 red_led.off()
@@ -54,7 +54,7 @@ if __name__ == "__main__":
             time.sleep(0.2)
 
     except KeyboardInterrupt:
-        print("\nProgram sonlandÄ±.")
+        print("\nProgram sonlandı.")
 
     except Exception as e:
         print(f"Beklenmedik hata: {e}")
@@ -73,4 +73,4 @@ if __name__ == "__main__":
         if 'sensor' in locals() and hasattr(sensor, 'close'):
             sensor.close()
 
-        print("Program sonlandÄ±.")
+
