@@ -155,7 +155,7 @@ if __name__ == "__main__":
                 plt.legend()
                 plt.grid(True)
                 plt.ylim(bottom=0)
-                # plt.savefig("1d_ultrasonik_haritam.png") # İsterseniz dosyaya kaydedebilirsiniz
+                plt.savefig("1d_ultrasonik_haritam.png") # İsterseniz dosyaya kaydedebilirsiniz
                 plt.show()
 
             except ImportError:
