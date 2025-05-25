@@ -177,7 +177,7 @@ if __name__ == "__main__":
                     plt.axis('equal')  # Eksenleri eşit ölçeklendir
                     plt.grid(True)
                     plt.legend()
-                    # plt.savefig("haritam.png") # İsterseniz dosyaya kaydedebilirsiniz
+                    plt.savefig("haritam.png") # İsterseniz dosyaya kaydedebilirsiniz
                     plt.show()  # Grafiği göster
                 else:
                     print("Çizdirilecek geçerli harita noktası bulunamadı (tüm ölçümler 0 veya menzil dışı olabilir).")
