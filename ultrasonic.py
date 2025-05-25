@@ -11,7 +11,7 @@ GREEN_LED_PIN = 18
 YELLOW_LED_PIN = 27 # Sarı LED için GPIO27 kullanılıyor, gerekirse değiştirin
 
 # Eşik Değerleri
-OBJECT_THRESHOLD_CM = 10.0  # Kırmızı/Yeşil LED için nesne algılama eşiği (10 cm)
+OBJECT_THRESHOLD_CM = 20.0  # Kırmızı/Yeşil LED için nesne algılama eşiği (10 cm)
 YELLOW_LED_THRESHOLD_CM = 100.0 # Sarı LED davranışı için eşik (100 cm)
 
 try:
